@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Data
 @Builder
-public class Announcement {
+public class Ad {
     //Объявление: уникальный идентификатор , имя бренда, цвет, цена.
     private Integer id;
     private String brand;

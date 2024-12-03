@@ -1,10 +1,16 @@
 package com.javaacademy.car_avito.controller;
 
-import com.javaacademy.car_avito.announcement.Announcement;
-import com.javaacademy.car_avito.announcementStorage.AnnouncementStorage;
+import com.javaacademy.car_avito.announcement.Ad;
+import com.javaacademy.car_avito.announcementStorage.AdStorage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,37 +26,34 @@ public class AnnouncementController {
     //4.3. Сервис позволяет удалить объявление (по уникальному идентификатору).
     //4.4. Сервис позволяет найти машину по уникальному идентификатору.
 
-    private final AnnouncementStorage announcementStorage;
-    int count = 0;
+    private final AdStorage adStorage;
+    private int count = 0;
 
     @PostMapping("/announcement")
-    public void createAnnouncement(@RequestBody Announcement announcement) {
-        count++;
-        announcement.setId(count);
-        log.info(announcement.toString());
-        announcementStorage.saveAnnouncement(announcement);
+    public void createAd(@RequestBody Ad ad) {
+        adStorage.saveAd(ad);
     }
 
     @GetMapping("/announcement")
-    public List<Announcement> getAllAnnouncement() {
-        return announcementStorage.getAllAnnouncement();
+    public List<Ad> getAllAd() {
+        return adStorage.getAllAd();
     }
 
     @DeleteMapping("/announcement/{id}")
-    public boolean deleteAnnouncementById(@PathVariable Integer id) {
-        return announcementStorage.removeAnnouncementById(id);
+    public boolean deleteAdById(@PathVariable Integer id) {
+        return adStorage.removeAdById(id);
     }
 
     @GetMapping("/announcement/{id}")
-    public Announcement getAnnouncementById(@PathVariable Integer id) {
-        return announcementStorage.getAnnouncementById(id).orElseThrow();
+    public Ad getAdById(@PathVariable Integer id) {
+        return adStorage.getAdById(id).orElseThrow();
     }
 
     @GetMapping("/announcement/search")
-    public List<Announcement> getAnnouncementByParams(@RequestParam(required = false) String brand,
-                                                      @RequestParam(required = false) String color,
-                                                      @RequestParam(required = false) BigDecimal price) {
-        return announcementStorage.getAnnouncementByParams(brand, color, price);
+    public List<Ad> getAdByParams(@RequestParam(required = false) String brand,
+                                  @RequestParam(required = false) String color,
+                                  @RequestParam(required = false) BigDecimal price) {
+        return adStorage.getAdByParams(brand, color, price);
     }
 
 }

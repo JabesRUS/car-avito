@@ -1,6 +1,6 @@
 package com.javaacademy.car_avito.announcementStorage;
 
-import com.javaacademy.car_avito.announcement.Announcement;
+import com.javaacademy.car_avito.announcement.Ad;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
@@ -12,11 +12,10 @@ import java.math.BigDecimal;
 @Profile("test")
 @RequiredArgsConstructor
 public class InitDataService {
-    private final AnnouncementStorage announcementStorage;
+    private final AdStorage adStorage;
 
-    private Announcement createAnnouncement(Integer id, String brand, String color, BigDecimal price) {
-        return Announcement.builder().
-                id(id)
+    private Ad createAd(String brand, String color, BigDecimal price) {
+        return Ad.builder()
                 .brand(brand)
                 .color(color)
                 .price(price)
@@ -25,17 +24,17 @@ public class InitDataService {
 
     @PostConstruct
     public void init() {
-        Announcement announcement1 = createAnnouncement(1, "AUDI", "BLACK", BigDecimal.valueOf(1_000_000));
-        Announcement announcement2 = createAnnouncement(2, "AUDI", "YELOW", BigDecimal.valueOf(2_000_000));
-        Announcement announcement3 = createAnnouncement(3, "BMW", "BLACK", BigDecimal.valueOf(3_000_000));
-        Announcement announcement4 = createAnnouncement(4, "BMW", "RED", BigDecimal.valueOf(2_000_000));
-        Announcement announcement5 = createAnnouncement(5, "BMW", "RED", BigDecimal.valueOf(1_000_000));
+        Ad ad1 = createAd("AUDI", "BLACK", BigDecimal.valueOf(1_000_000));
+        Ad ad2 = createAd("AUDI", "YELOW", BigDecimal.valueOf(2_000_000));
+        Ad ad3 = createAd("BMW", "BLACK", BigDecimal.valueOf(3_000_000));
+        Ad ad4 = createAd("BMW", "RED", BigDecimal.valueOf(2_000_000));
+        Ad ad5 = createAd("BMW", "RED", BigDecimal.valueOf(1_000_000));
 
-        announcementStorage.saveAnnouncement(announcement1);
-        announcementStorage.saveAnnouncement(announcement2);
-        announcementStorage.saveAnnouncement(announcement3);
-        announcementStorage.saveAnnouncement(announcement4);
-        announcementStorage.saveAnnouncement(announcement5);
+        adStorage.saveAd(ad1);
+        adStorage.saveAd(ad2);
+        adStorage.saveAd(ad3);
+        adStorage.saveAd(ad4);
+        adStorage.saveAd(ad5);
 
     }
 }
