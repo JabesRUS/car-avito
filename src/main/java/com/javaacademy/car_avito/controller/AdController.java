@@ -1,7 +1,7 @@
 package com.javaacademy.car_avito.controller;
 
 import com.javaacademy.car_avito.ad.Ad;
-import com.javaacademy.car_avito.ad_storage.AdStorage;
+import com.javaacademy.car_avito.service.AdStorage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.DeleteMapping;

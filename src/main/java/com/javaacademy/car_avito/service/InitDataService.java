@@ -1,4 +1,4 @@
-package com.javaacademy.car_avito.ad_storage;
+package com.javaacademy.car_avito.service;
 
 import com.javaacademy.car_avito.ad.Ad;
 import jakarta.annotation.PostConstruct;
