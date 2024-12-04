@@ -1,7 +1,7 @@
 package com.javaacademy.car_avito.controller;
 
-import com.javaacademy.car_avito.announcement.Ad;
-import com.javaacademy.car_avito.announcementStorage.AdStorage;
+import com.javaacademy.car_avito.ad.Ad;
+import com.javaacademy.car_avito.ad_storage.AdStorage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-public class AnnouncementController {
+public class AdController {
     //4. Создать web слой (все ниже это http endpoint). Использует сервис хранения объявлений.
     //4.1. Сервис позволяет создать объявление. На вход: имя бренда, цвет, цена.
     // Уникальный идентификатор генерируется во время создания объявления.

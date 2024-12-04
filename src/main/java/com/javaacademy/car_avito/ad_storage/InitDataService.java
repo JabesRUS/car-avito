@@ -1,6 +1,6 @@
-package com.javaacademy.car_avito.announcementStorage;
+package com.javaacademy.car_avito.ad_storage;
 
-import com.javaacademy.car_avito.announcement.Ad;
+import com.javaacademy.car_avito.ad.Ad;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;

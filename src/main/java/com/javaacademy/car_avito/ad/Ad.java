@@ -1,4 +1,4 @@
-package com.javaacademy.car_avito.announcement;
+package com.javaacademy.car_avito.ad;
 
 import lombok.Builder;
 import lombok.Data;
